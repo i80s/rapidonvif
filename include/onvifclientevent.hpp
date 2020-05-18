@@ -28,7 +28,7 @@ public:
 	//TODO add callback to here
 	virtual	int Notify(_wsnt__Notify *wsnt__Notify)
 	{
-		printf("\nMessage size %d\n", wsnt__Notify->NotificationMessage.size());
+		printf("\nMessage size %d\n", (int)wsnt__Notify->NotificationMessage.size());
 		if(wsnt__Notify->NotificationMessage.size() > 0 )
 		{
 			m_EventCnt ++;

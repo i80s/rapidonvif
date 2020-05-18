@@ -39,17 +39,17 @@ public:
 	int GetHostname(_tds__GetHostnameResponse &GetHostnameResponse);
 	int SetHostname(_tds__SetHostnameResponse &SetHostnameResponse, string Name);
 	int GetDNS(_tds__GetDNSResponse &GetDNSResponse);
-	int SetDNS(_tds__SetDNSResponse &SetDNSResponse, bool FromDHCP, vector<string,allocator<string>> SearchDomain, vector<tt__IPAddress*,allocator<tt__IPAddress*>> &DNSManual);
+	int SetDNS(_tds__SetDNSResponse &SetDNSResponse, bool FromDHCP, vector<string,allocator<string> > SearchDomain, vector<tt__IPAddress*,allocator<tt__IPAddress*> > &DNSManual);
 	int GetNTP(_tds__GetNTPResponse &GetNTPResponse);
-	int SetNTP(_tds__SetNTPResponse &SetNTPResponse, bool FromDHCP, vector<tt__NetworkHost*,allocator<tt__NetworkHost*>> &NTPManual);
+	int SetNTP(_tds__SetNTPResponse &SetNTPResponse, bool FromDHCP, vector<tt__NetworkHost*,allocator<tt__NetworkHost*> > &NTPManual);
 	int GetDynamicDNS(_tds__GetDynamicDNSResponse &GetDynamicDNSResponse);
 	int SetDynamicDNS(_tds__SetDynamicDNSResponse &SetDynamicDNSResponse,tt__DynamicDNSType &Type,tt__DNSName &Name, LONG64 &durationTTL);
 	int GetNetworkInterfaces(_tds__GetNetworkInterfacesResponse &GetNetworkInterfacesResponse);
 	int SetNetworkInterfaces(_tds__SetNetworkInterfacesResponse &SetNetworkInterfacesResponse,string InterfaceToken,tt__NetworkInterfaceSetConfiguration &NetworkInterface);
 	int GetNetworkProtocols(_tds__GetNetworkProtocolsResponse &GetNetworkProtocolsResponse);
-	int SetNetworkProtocols(_tds__SetNetworkProtocolsResponse &SetNetworkProtocolsResponse,vector<tt__NetworkProtocol*,allocator<tt__NetworkProtocol*>> &NetworkProtocols);
+	int SetNetworkProtocols(_tds__SetNetworkProtocolsResponse &SetNetworkProtocolsResponse,vector<tt__NetworkProtocol*,allocator<tt__NetworkProtocol*> > &NetworkProtocols);
 	int GetNetworkDefaultGateway(_tds__GetNetworkDefaultGatewayResponse &GetNetworkDefaultGatewayResponse);
-	int SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse &SetNetworkDefaultGatewayResponse,vector<string,allocator<string>> &IPv4,vector<string,allocator<string>> &IPv6);
+	int SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse &SetNetworkDefaultGatewayResponse,vector<string,allocator<string> > &IPv4,vector<string,allocator<string> > &IPv6);
 	int SystemReboot(_tds__SystemRebootResponse &SystemRebootResponse);
 
 	int SynchronizeDateAndTimeWithCamera(string &strUrl,string &strUser,string &strPass,_tds__SetSystemDateAndTimeResponse &SetSystemDateAndTimeResponse);
@@ -103,8 +103,8 @@ private:
 	string m_strEvent;
 	DeviceBindingProxy deviceBindProxy;
 
-	double OnvifClientDevice::findDiffTime(struct tm local_sys,tt__DateTime cameraTime,bool isDST);
-	int OnvifClientDevice::LocalAddUsernameTokenDigest(struct soap *soapOff,double cam_pc_offset);
+	double findDiffTime(struct tm local_sys,tt__DateTime cameraTime,bool isDST);
+	int LocalAddUsernameTokenDigest(struct soap *soapOff,double cam_pc_offset);
 };
 
 int OnvifClientDevice::GetHostname(_tds__GetHostnameResponse &GetHostnameResponse)
@@ -164,7 +164,7 @@ int OnvifClientDevice::GetDNS(_tds__GetDNSResponse &GetDNSResponse)
 	return deviceBindProxy.GetDNS(&GetDNSReq,&GetDNSResponse);
 }
 
-int OnvifClientDevice::SetDNS(_tds__SetDNSResponse &SetDNSResponse, bool FromDHCP, vector<string,allocator<string>> SearchDomain, vector<tt__IPAddress*,allocator<tt__IPAddress*>> &DNSManual)
+int OnvifClientDevice::SetDNS(_tds__SetDNSResponse &SetDNSResponse, bool FromDHCP, vector<string,allocator<string> > SearchDomain, vector<tt__IPAddress*,allocator<tt__IPAddress*> > &DNSManual)
 {
 	string strUrl;
 	string strUser;
@@ -203,7 +203,7 @@ int OnvifClientDevice::GetNTP(_tds__GetNTPResponse &GetNTPResponse)
 	return deviceBindProxy.GetNTP(&GetNTPReq,&GetNTPResponse);
 }
 
-int OnvifClientDevice::SetNTP(_tds__SetNTPResponse &SetNTPResponse, bool FromDHCP, vector<tt__NetworkHost*,allocator<tt__NetworkHost*>> &NTPManual)
+int OnvifClientDevice::SetNTP(_tds__SetNTPResponse &SetNTPResponse, bool FromDHCP, vector<tt__NetworkHost*,allocator<tt__NetworkHost*> > &NTPManual)
 {
 	string strUrl;
 	string strUser;
@@ -318,7 +318,7 @@ int OnvifClientDevice::GetNetworkProtocols(_tds__GetNetworkProtocolsResponse &Ge
 	return deviceBindProxy.GetNetworkProtocols(&GetNetworkProtocolsReq,&GetNetworkProtocolsResponse);
 }
 
-int OnvifClientDevice::SetNetworkProtocols(_tds__SetNetworkProtocolsResponse &SetNetworkProtocolsResponse,vector<tt__NetworkProtocol*,allocator<tt__NetworkProtocol*>> &NetworkProtocols)
+int OnvifClientDevice::SetNetworkProtocols(_tds__SetNetworkProtocolsResponse &SetNetworkProtocolsResponse,vector<tt__NetworkProtocol*,allocator<tt__NetworkProtocol*> > &NetworkProtocols)
 {
 	string strUrl;
 	string strUser;
@@ -355,7 +355,7 @@ int OnvifClientDevice::GetNetworkDefaultGateway(_tds__GetNetworkDefaultGatewayRe
 	return deviceBindProxy.GetNetworkDefaultGateway(&GetNetworkDefaultGatewayReq,&GetNetworkDefaultGatewayResponse);
 }
 
-int OnvifClientDevice::SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse &SetNetworkDefaultGatewayResponse,vector<string,allocator<string>> &IPv4,vector<string,allocator<string>> &IPv6)
+int OnvifClientDevice::SetNetworkDefaultGateway(_tds__SetNetworkDefaultGatewayResponse &SetNetworkDefaultGatewayResponse,vector<string,allocator<string> > &IPv4,vector<string,allocator<string> > &IPv6)
 {
 	string strUrl;
 	string strUser;

@@ -21,15 +21,15 @@ public:
     ~OnvifClientReceiver();
 public:
 	//Dealing with receivers
-	int OnvifClientReceiver::GetReceivers(_trv__GetReceiversResponse & receivers);
-	int OnvifClientReceiver::GetReceiver(_trv__GetReceiverResponse &receiverResponsem, string ReceiverToken);
-	int OnvifClientReceiver::CreateReceiver(_trv__CreateReceiverResponse &CreateReceiverResponse, tt__ReceiverConfiguration &ReceiverConfiguration);
-	int OnvifClientReceiver::DeleteReceiver(_trv__DeleteReceiverResponse &DeleteReceiverResponse, string ReceiverToken);
+	int GetReceivers(_trv__GetReceiversResponse & receivers);
+	int GetReceiver(_trv__GetReceiverResponse &receiverResponsem, string ReceiverToken);
+	int CreateReceiver(_trv__CreateReceiverResponse &CreateReceiverResponse, tt__ReceiverConfiguration &ReceiverConfiguration);
+	int DeleteReceiver(_trv__DeleteReceiverResponse &DeleteReceiverResponse, string ReceiverToken);
 	//receiver status functions
-	int OnvifClientReceiver::ConfigureReceiver(_trv__ConfigureReceiverResponse &ConfigureReceiverResponse, string ReceiverToken,tt__ReceiverConfiguration &ReceiverConfiguration);
-	int OnvifClientReceiver::SetReceiverMode(_trv__SetReceiverModeResponse &SetReceiverModeResponse, string ReceiverToken,tt__ReceiverMode &ReceiverConfiguration);
-	int OnvifClientReceiver::GetReceiverState(_trv__GetReceiverStateResponse &GetReceiverStateResponse, string ReceiverToken);
-	int OnvifClientReceiver::GetServiceCapabilities(_trv__GetServiceCapabilitiesResponse &GetReceiverStateResponse);
+	int ConfigureReceiver(_trv__ConfigureReceiverResponse &ConfigureReceiverResponse, string ReceiverToken,tt__ReceiverConfiguration &ReceiverConfiguration);
+	int SetReceiverMode(_trv__SetReceiverModeResponse &SetReceiverModeResponse, string ReceiverToken,tt__ReceiverMode &ReceiverConfiguration);
+	int GetReceiverState(_trv__GetReceiverStateResponse &GetReceiverStateResponse, string ReceiverToken);
+	int GetServiceCapabilities(_trv__GetServiceCapabilitiesResponse &GetReceiverStateResponse);
 
 private:
 	OnvifClientDevice &m_Device;
