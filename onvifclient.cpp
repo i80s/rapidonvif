@@ -10,11 +10,12 @@ int main(int argc, char* argv[])
 {
 	int ret;
 	/* 192.168.1.1 is the NVT, 192.168.1.234 is the NVC */
-	string url = "http://192.168.1.1/onvif/device_service";
+	string url = "http://192.168.3.127/onvif/device_service";
 	/* Below is where to receive the event */
 	string eventNotify = "http://192.168.1.234:9090/subscription-2";
 	string user = "admin";
-	string pass =  "admin";
+	string pass =  "www.ikuai8.com";
+
 	OnvifClientDevice onvifDevice(url, user, pass);
 	_tds__GetCapabilitiesResponse capabilitiesResponse;
 
